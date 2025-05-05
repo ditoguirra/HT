@@ -1,0 +1,1156 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top Produits Amazon | Sélection Premium</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #FF9900;
+            --secondary: #146EB4;
+            --dark: #131A22;
+            --light: #FFFFFF;
+            --gray: #F3F3F3;
+            --text: #333333;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--gray);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--dark), var(--secondary));
+            color: var(--light);
+            padding: 2rem 0;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .header-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1600&q=80') center/cover;
+            opacity: 0.2;
+            z-index: 1;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--light);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo i {
+            color: var(--primary);
+            margin-right: 0.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 3rem 0;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            animation: fadeInUp 1s ease 0.2s forwards;
+            opacity: 0;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--primary);
+            color: var(--dark);
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            animation: fadeInUp 1s ease 0.4s forwards;
+            opacity: 0;
+            box-shadow: 0 4px 15px rgba(255, 153, 0, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 153, 0, 0.4);
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: relative;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+        }
+
+        /* Product Grid */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .product-card {
+            background-color: var(--light);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            transform: translateY(20px);
+            opacity: 0;
+            animation: fadeInUp 0.5s ease forwards;
+        }
+
+        .product-card:nth-child(1) { animation-delay: 0.1s; }
+        .product-card:nth-child(2) { animation-delay: 0.2s; }
+        .product-card:nth-child(3) { animation-delay: 0.3s; }
+        .product-card:nth-child(4) { animation-delay: 0.4s; }
+        .product-card:nth-child(5) { animation-delay: 0.5s; }
+        .product-card:nth-child(6) { animation-delay: 0.6s; }
+        .product-card:nth-child(7) { animation-delay: 0.7s; }
+        .product-card:nth-child(8) { animation-delay: 0.8s; }
+        .product-card:nth-child(9) { animation-delay: 0.9s; }
+        .product-card:nth-child(10) { animation-delay: 1s; }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: var(--primary);
+            color: var(--dark);
+            padding: 0.3rem 0.8rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            z-index: 2;
+        }
+
+        .product-image {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+
+        .product-info {
+            padding: 1.5rem;
+        }
+
+        .product-category {
+            color: var(--secondary);
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .product-rating {
+            color: var(--primary);
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .product-rating span {
+            color: var(--text);
+            font-size: 0.9rem;
+            margin-left: 0.5rem;
+        }
+
+        .product-price {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+
+        .product-price del {
+            font-size: 1rem;
+            color: #999;
+            margin-left: 0.5rem;
+        }
+
+        .product-button {
+            display: block;
+            text-align: center;
+            background-color: var(--primary);
+            color: var(--dark);
+            padding: 0.6rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .product-button:hover {
+            background-color: var(--dark);
+            color: var(--light);
+        }
+
+        /* Features Section */
+        .features {
+            background-color: var(--light);
+            padding: 4rem 0;
+            margin: 4rem 0;
+            box-shadow: var(--shadow);
+        }
+
+        .features-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 2rem;
+            border-radius: 10px;
+            transition: var(--transition);
+            transform: translateY(20px);
+            opacity: 0;
+            animation: fadeInUp 0.5s ease forwards;
+        }
+
+        .feature-card:nth-child(1) { animation-delay: 0.2s; }
+        .feature-card:nth-child(2) { animation-delay: 0.4s; }
+        .feature-card:nth-child(3) { animation-delay: 0.6s; }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-title {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+
+        /* Testimonials */
+        .testimonials {
+            margin-bottom: 4rem;
+        }
+
+        .testimonial-slider {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonial-slide {
+            background-color: var(--light);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .testimonial-slide.active {
+            display: block;
+        }
+
+        .testimonial-text {
+            font-size: 1.1rem;
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .testimonial-text::before,
+        .testimonial-text::after {
+            content: '"';
+            font-size: 2rem;
+            color: var(--primary);
+            opacity: 0.5;
+        }
+
+        .testimonial-text::before {
+            position: absolute;
+            top: -15px;
+            left: -10px;
+        }
+
+        .testimonial-text::after {
+            position: absolute;
+            bottom: -30px;
+            right: -10px;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 1rem;
+        }
+
+        .author-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .author-info h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .author-info p {
+            font-size: 0.9rem;
+            color: #777;
+        }
+
+        .testimonial-nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 1.5rem;
+        }
+
+        .testimonial-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #ccc;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .testimonial-dot.active {
+            background-color: var(--primary);
+            transform: scale(1.2);
+        }
+
+        /* Newsletter */
+        .newsletter {
+            background: linear-gradient(135deg, var(--secondary), var(--dark));
+            color: var(--light);
+            padding: 4rem 0;
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .newsletter-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .newsletter h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .newsletter p {
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 0.8rem 1rem;
+            border: none;
+            border-radius: 5px 0 0 5px;
+            font-size: 1rem;
+        }
+
+        .newsletter-form button {
+            background-color: var(--primary);
+            color: var(--dark);
+            border: none;
+            padding: 0 1.5rem;
+            border-radius: 0 5px 5px 0;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .newsletter-form button:hover {
+            background-color: var(--light);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: var(--light);
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-column h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .footer-column h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--primary);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--light);
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background-color: var(--primary);
+            color: var(--dark);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: #999;
+        }
+
+        .footer-bottom a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .newsletter-form input {
+                border-radius: 5px;
+                margin-bottom: 0.5rem;
+            }
+
+            .newsletter-form button {
+                border-radius: 5px;
+                padding: 0.8rem;
+            }
+        }
+
+        /* Floating elements */
+        .floating {
+            position: absolute;
+            animation: floating 3s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .floating-1 {
+            top: 20%;
+            left: 5%;
+            width: 50px;
+            opacity: 0.5;
+            animation-delay: 0.5s;
+        }
+
+        .floating-2 {
+            top: 60%;
+            right: 8%;
+            width: 40px;
+            opacity: 0.7;
+            animation-delay: 1s;
+        }
+
+        .floating-3 {
+            bottom: 10%;
+            left: 10%;
+            width: 30px;
+            opacity: 0.4;
+            animation-delay: 1.5s;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-bg"></div>
+        <div class="header-content">
+            <nav>
+                <a href="#" class="logo"><i class="fas fa-crown"></i> TopAmazon</a>
+                <ul class="nav-links">
+                    <li><a href="#produits">Produits</a></li>
+                    <li><a href="#selection">Notre Sélection</a></li>
+                    <li><a href="#avis">Avis Clients</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="hero">
+                <h1>Les Meilleurs Produits Amazon</h1>
+                <p>Découvrez notre sélection exclusive des produits les plus populaires et les mieux notés sur Amazon. Des achats en toute confiance avec nos recommandations d'experts.</p>
+                <a href="#produits" class="cta-button">Voir les produits</a>
+            </div>
+        </div>
+        
+        <!-- Floating elements -->
+        <img src="https://cdn-icons-png.flaticon.com/512/731/731985.png" class="floating floating-1" alt="floating icon">
+        <img src="https://cdn-icons-png.flaticon.com/512/731/731962.png" class="floating floating-2" alt="floating icon">
+        <img src="https://cdn-icons-png.flaticon.com/512/731/731988.png" class="floating floating-3" alt="floating icon">
+    </header>
+
+    <main>
+        <section id="produits" class="container">
+            <div class="section-title">
+                <h2>Nos Produits Phares</h2>
+            </div>
+            <div class="product-grid">
+                <!-- Produit 1 -->
+                <div class="product-card">
+                    <span class="product-badge">Best Seller</span>
+                    <div class="product-image">
+                        <img src="https://m.media-amazon.com/images/I/71WkDp--uqL._AC_SL1500_.jpg" alt="Écouteurs sans fil">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Audio</span>
+                        <h3 class="product-title">Écouteurs Sans Fil Bluetooth avec Réduction de Bruit</h3>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>(4,782)</span>
+                        </div>
+                        <div class="product-price">€89.99 <del>€129.99</del></div>
+                        <a href="https://www.amazon.fr/dp/B08NFT4D1H" class="product-button" target="_blank">Voir sur Amazon</a>
+                    </div>
+                </div>
+
+                <!-- Produit 2 -->
+                <div class="product-card">
+                    <span class="product-badge">Promo</span>
+                    <div class="product-image">
+                        <img src="https://m.media-amazon.com/images/I/71Y1S1m-QAL._AC_SL1500_.jpg" alt="Montre connectée">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Smartwatch</span>
+                        <h3 class="product-title">Montre Connectée Écran Tactile avec Surveillance Cardiaque</h3>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span>(3,451)</span>
+                        </div>
+                        <div class="product-price">€59.99 <del>€79.99</del></div>
+                        <a href="https://www.amazon.fr/dp/B08NFT4D1H" class="product-button" target="_blank">Voir sur Amazon</a>
+                    </div>
+                </div>
+
+                <!-- Produit 3 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://m.media-amazon.com/images/I/71qod7R6ZVL._AC_SL1500_.jpg" alt="Enceinte Bluetooth">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Audio</span>
+                        <h3 class="product-title">Enceinte Bluetooth Portable avec Éclairage LED</h3>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(6,892)</span>
+                        </div>
+                        <div class="product-price">€39.99 <del>€59.99</del></div>
+                        <a href="https://www.amazon.fr/dp/B08NFT4D1H" class="product-button" target="_blank">Voir sur Amazon</a>
+                    </div>
+                </div>
+
+                <!-- Produit 4 -->
+                <div class="product-card">
+                    <span class="product-badge">Nouveau</span>
+                    <div class="product-image">
+                        <img src="https://m.media-amazon.com/images/I/61L5QgPvgxL._AC_SL1500_.jpg" alt="Robot cuisine">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Cuisine</span>
+                        <h3 class="product-title">Robot Cuiseur Multifonction Intelligent 12-en-1</h3>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>(2,345)</span>
+                        </div>
+                        <div class="product-price">€149.99 <del>€199.99</del></div>
+                        <a href="https://www.amazon.fr/dp/B08NFT4D1H" class="product-button" target="_blank">Voir sur Amazon</a>
+                    </div>
+                </div>
+
+                <!-- Produit 5 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://m.media-amazon.com/images/I/71X8YbUpM6L._AC_SL1500_.jpg" alt="Oreiller ergonomique">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Maison</span>
+                        <h3 class="product-title">Oreiller Ergonomique Mémoire de Forme Cervical</h3>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span>(5,672)</span>
+                        </div>
+                        <div class="product-price">€34.99 <del>€49.99</del></div>
+                        <a href="https://www.amazon.fr/dp/B08NFT4D1H" class="product-button" target="_blank">Voir sur Amazon</a>
+                    </div>
+                </div>
+
+                <!-- Produit 6 -->
+                <div class="product-card">
+                    <span class="product-badge">Économie</span>
+                    <div class="product-image">
+                        <img src="https://m.media-amazon.com/images/I/71Yd+PRjK3L._AC_SL1500_.jpg" alt="Purificateur d'air">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Maison</span>
+                        <h3 class="product-title">Purificateur d'Air avec Filtre HEPA et Ioniseur</h3>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(4,128)</span>
+                        </div>
+                        <div class="product-price">€129.99 <del>€179.99</del></div>
+                        <a href="https://www.amazon.fr/dp/B08NFT4D1H" class="product-button" target="_blank">Voir sur Amazon</a>
+                    </div>
+                </div>
+
+                <!-- Produit 7 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://m.media-amazon.com/images/I/71m+Qtq+HZL._AC_SL1500_.jpg" alt="Tapis de course">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Fitness</span>
+                        <h3 class="product-title">Tapis de Course Pliable avec Affichage Numérique</h3>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>(1,876)</span>
+                        </div>
+                        <div class="product-price">€299.99 <del>€399.99</del></div>
+                        <a href="https://www.amazon.fr/dp/B08NFT4D1H" class="product-button" target="_blank">Voir sur Amazon</a>
+                    </div>
+                </div>
+
+                <!-- Produit 8 -->
+                <div class="product-card">
+                    <span class="product-badge">Top</span>
+                    <div class="product-image">
+                        <img src="https://m.media-amazon.com/images/I/71TPda7cwUL._AC_SL1500_.jpg" alt="Drone">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Drone</span>
+                        <h3 class="product-title">Drone HD avec Caméra 4K et Double Batterie</h3>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span>(3,245)</span>
+                        </div>
+                        <div class="product-price">€159.99 <del>€229.99</del></div>
+                        <a href="https://www.amazon.fr/dp/B08NFT4D1H" class="product-button" target="_blank">Voir sur Amazon</a>
+                    </div>
+                </div>
+
+                <!-- Produit 9 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://m.media-amazon.com/images/I/71X8YbUpM6L._AC_SL1500_.jpg" alt="Lampe de sel">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Décoration</span>
+                        <h3 class="product-title">Lampe de Sel de l'Himalaya Naturelle avec Interrupteur</h3>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(8,756)</span>
+                        </div>
+                        <div class="product-price">€24.99 <del>€34.99</del></div>
+                        <a href="https://www.amazon.fr/dp/B08NFT4D1H" class="product-button" target="_blank">Voir sur Amazon</a>
+                    </div>
+                </div>
+
+                <!-- Produit 10 -->
+                <div class="product-card">
+                    <span class="product-badge">Choix</span>
+                    <div class="product-image">
+                        <img src="https://m.media-amazon.com/images/I/71Yd+PRjK3L._AC_SL1500_.jpg" alt="Coussin chauffant">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Bien-être</span>
+                        <h3 class="product-title">Coussin Chauffant Électrique avec Minuterie</h3>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>(4,321)</span>
+                        </div>
+                        <div class="product-price">€39.99 <del>€49.99</del></div>
+                        <a href="https://www.amazon.fr/dp/B08NFT4D1H" class="product-button" target="_blank">Voir sur Amazon</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="selection" class="features">
+            <div class="features-container">
+                <div class="section-title">
+                    <h2>Pourquoi Choisir Notre Sélection</h2>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h3 class="feature-title">Produits Testés</h3>
+                        <p>Tous nos produits sont soigneusement sélectionnés et testés par notre équipe pour vous garantir la meilleure qualité.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-tag"></i>
+                        </div>
+                        <h3 class="feature-title">Meilleurs Prix</h3>
+                        <p>Nous négocions les meilleurs prix et promotions pour vous faire économiser sur vos achats Amazon.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3 class="feature-title">Achat Sécurisé</h3>
+                        <p>Tous les achats passent par le système sécurisé d'Amazon pour une protection maximale.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="avis" class="container testimonials">
+            <div class="section-title">
+                <h2>Avis Clients</h2>
+            </div>
+            <div class="testimonial-slider">
+                <div class="testimonial-slide active">
+                    <p class="testimonial-text">Grâce à ce site, j'ai découvert des produits exceptionnels sur Amazon que je n'aurais jamais trouvés seul. Les recommandations sont toujours pertinentes et de qualité.</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Marie D.">
+                        </div>
+                        <div class="author-info">
+                            <h4>Marie D.</h4>
+                            <p>Client depuis 2022</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-slide">
+                    <p class="testimonial-text">Les réductions proposées sont réelles et importantes. J'ai économisé près de 150€ sur mes derniers achats grâce aux bons plans partagés.</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Pierre L.">
+                        </div>
+                        <div class="author-info">
+                            <h4>Pierre L.</h4>
+                            <p>Client depuis 2021</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-slide">
+                    <p class="testimonial-text">La qualité des produits recommandés est toujours au rendez-vous. Je fais désormais confiance à ce site pour tous mes achats sur Amazon.</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sophie T.">
+                        </div>
+                        <div class="author-info">
+                            <h4>Sophie T.</h4>
+                            <p>Client depuis 2023</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-nav">
+                    <div class="testimonial-dot active" data-slide="0"></div>
+                    <div class="testimonial-dot" data-slide="1"></div>
+                    <div class="testimonial-dot" data-slide="2"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="newsletter">
+            <div class="newsletter-container">
+                <h3>Abonnez-vous à Notre Newsletter</h3>
+                <p>Recevez nos dernières offres et recommandations directement dans votre boîte mail.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Votre adresse email" required>
+                    <button type="submit">S'abonner</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h4>TopAmazon</h4>
+                <p>Notre mission est de vous aider à trouver les meilleurs produits sur Amazon au meilleur prix.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-pinterest"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h4>Liens Utiles</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Accueil</a></li>
+                    <li><a href="#produits">Produits</a></li>
+                    <li><a href="#selection">Notre Sélection</a></li>
+                    <li><a href="#avis">Avis Clients</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Informations</h4>
+                <ul class="footer-links">
+                    <li><a href="#">À propos</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Politique de confidentialité</a></li>
+                    <li><a href="#">Conditions d'utilisation</a></li>
+                    <li><a href="#">Affiliation Amazon</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Contact</h4>
+                <ul class="footer-links">
+                    <li><i class="fas fa-envelope"></i> contact@topamazon.fr</li>
+                    <li><i class="fas fa-phone"></i> +33 1 23 45 67 89</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Paris, France</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 TopAmazon. Tous droits réservés. Ce site participe au Programme Partenaires d'Amazon.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Testimonial slider
+        const testimonialSlides = document.querySelectorAll('.testimonial-slide');
+        const testimonialDots = document.querySelectorAll('.testimonial-dot');
+        let currentSlide = 0;
+
+        function showSlide(index) {
+            testimonialSlides.forEach(slide => slide.classList.remove('active'));
+            testimonialDots.forEach(dot => dot.classList.remove('active'));
+            
+            testimonialSlides[index].classList.add('active');
+            testimonialDots[index].classList.add('active');
+            currentSlide = index;
+        }
+
+        testimonialDots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                const slideIndex = parseInt(dot.getAttribute('data-slide'));
+                showSlide(slideIndex);
+            });
+        });
+
+        // Auto slide change
+        setInterval(() => {
+            currentSlide = (currentSlide + 1) % testimonialSlides.length;
+            showSlide(currentSlide);
+        }, 5000);
+
+        // Newsletter form
+        const newsletterForm = document.querySelector('.newsletter-form');
+        newsletterForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const email = newsletterForm.querySelector('input').value;
+            alert(`Merci pour votre inscription avec l'adresse ${email}!`);
+            newsletterForm.reset();
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Animation on scroll
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.product-card, .feature-card');
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.2;
+                
+                if (elementPosition < screenPosition) {
+                    element.style.animation = 'fadeInUp 0.5s ease forwards';
+                }
+            });
+        };
+
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+    </script>
+</body>
+</html>
