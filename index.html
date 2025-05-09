@@ -3,633 +3,458 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Top Produits Amazon | Sélection Premium</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>iPhone 16 - La révolution arrive</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         :root {
-            --primary: #FF9900;
-            --secondary: #146EB4;
-            --dark: #131A22;
-            --light: #FFFFFF;
-            --gray: #F3F3F3;
-            --text: #333333;
-            --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --apple-blue: #0071e3;
+            --apple-dark: #1d1d1f;
+            --apple-light: #f5f5f7;
+            --apple-gradient: linear-gradient(135deg, #0071e3 0%, #5e9ce6 100%);
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
         }
 
         body {
-            background-color: var(--gray);
-            color: var(--text);
-            line-height: 1.6;
+            background-color: var(--apple-light);
+            color: var(--apple-dark);
             overflow-x: hidden;
         }
 
         /* Header */
         header {
-            background: linear-gradient(135deg, var(--dark), var(--secondary));
-            color: var(--light);
-            padding: 2rem 0;
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--apple-dark);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--apple-blue);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            color: var(--apple-dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--apple-blue);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 0 10%;
             position: relative;
             overflow: hidden;
-            box-shadow: var(--shadow);
         }
 
-        .header-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 200%;
+            background: var(--apple-gradient);
+            border-radius: 50%;
+            z-index: -1;
+            opacity: 0.1;
+            animation: pulse 15s infinite alternate;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            100% {
+                transform: scale(1.1);
+            }
+        }
+
+        .hero-content {
+            flex: 1;
+            padding-right: 50px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-image {
+            flex: 1;
             position: relative;
-            z-index: 2;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 1.5s ease-out;
         }
 
-        .header-bg {
+        .hero-image img {
+            max-width: 80%;
+            transform: perspective(1000px) rotateY(-20deg);
+            filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.2));
+            transition: transform 0.5s;
+        }
+
+        .hero-image:hover img {
+            transform: perspective(1000px) rotateY(0deg);
+        }
+
+        h1 {
+            font-size: 64px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .subtitle {
+            font-size: 24px;
+            color: #666;
+            margin-bottom: 30px;
+            font-weight: 400;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--apple-gradient);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+            transition: all 0.3s;
+            box-shadow: 0 10px 20px rgba(0, 113, 227, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 25px rgba(0, 113, 227, 0.4);
+        }
+
+        .cta-button::after {
+            content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1600&q=80') center/cover;
-            opacity: 0.2;
-            z-index: 1;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s;
         }
 
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 2rem;
-        }
-
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--light);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-        }
-
-        .logo i {
-            color: var(--primary);
-            margin-right: 0.5rem;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-        }
-
-        .nav-links li {
-            margin-left: 2rem;
-        }
-
-        .nav-links a {
-            color: var(--light);
-            text-decoration: none;
-            font-weight: 500;
-            transition: var(--transition);
-            position: relative;
-        }
-
-        .nav-links a:hover {
-            color: var(--primary);
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: var(--primary);
-            transition: var(--transition);
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .hero {
-            text-align: center;
-            padding: 3rem 0;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            animation: fadeInUp 1s ease;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto 2rem;
-            animation: fadeInUp 1s ease 0.2s forwards;
-            opacity: 0;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background-color: var(--primary);
-            color: var(--dark);
-            padding: 0.8rem 2rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: var(--transition);
-            animation: fadeInUp 1s ease 0.4s forwards;
-            opacity: 0;
-            box-shadow: 0 4px 15px rgba(255, 153, 0, 0.3);
-        }
-
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(255, 153, 0, 0.4);
-        }
-
-        /* Main Content */
-        .container {
-            max-width: 1200px;
-            margin: 3rem auto;
-            padding: 0 2rem;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 3rem;
-            position: relative;
-        }
-
-        .section-title h2 {
-            font-size: 2.5rem;
-            display: inline-block;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            position: relative;
-        }
-
-        .section-title h2::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
-        }
-
-        /* Product Grid */
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-bottom: 4rem;
-        }
-
-        .product-card {
-            background-color: var(--light);
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            position: relative;
-            transform: translateY(20px);
-            opacity: 0;
-            animation: fadeInUp 0.5s ease forwards;
-        }
-
-        .product-card:nth-child(1) { animation-delay: 0.1s; }
-        .product-card:nth-child(2) { animation-delay: 0.2s; }
-        .product-card:nth-child(3) { animation-delay: 0.3s; }
-        .product-card:nth-child(4) { animation-delay: 0.4s; }
-        .product-card:nth-child(5) { animation-delay: 0.5s; }
-        .product-card:nth-child(6) { animation-delay: 0.6s; }
-        .product-card:nth-child(7) { animation-delay: 0.7s; }
-        .product-card:nth-child(8) { animation-delay: 0.8s; }
-        .product-card:nth-child(9) { animation-delay: 0.9s; }
-        .product-card:nth-child(10) { animation-delay: 1s; }
-
-        .product-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
-        }
-
-        .product-badge {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background-color: var(--primary);
-            color: var(--dark);
-            padding: 0.3rem 0.8rem;
-            border-radius: 50px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            z-index: 2;
-        }
-
-        .product-image {
-            height: 200px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .product-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: var(--transition);
-        }
-
-        .product-card:hover .product-image img {
-            transform: scale(1.05);
-        }
-
-        .product-info {
-            padding: 1.5rem;
-        }
-
-        .product-category {
-            color: var(--secondary);
-            font-size: 0.9rem;
-            font-weight: 500;
-            margin-bottom: 0.5rem;
-        }
-
-        .product-title {
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-bottom: 0.8rem;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-        }
-
-        .product-rating {
-            color: var(--primary);
-            margin-bottom: 0.8rem;
-            display: flex;
-            align-items: center;
-        }
-
-        .product-rating span {
-            color: var(--text);
-            font-size: 0.9rem;
-            margin-left: 0.5rem;
-        }
-
-        .product-price {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: var(--secondary);
-            margin-bottom: 1rem;
-        }
-
-        .product-price del {
-            font-size: 1rem;
-            color: #999;
-            margin-left: 0.5rem;
-        }
-
-        .product-button {
-            display: block;
-            text-align: center;
-            background-color: var(--primary);
-            color: var(--dark);
-            padding: 0.6rem;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: var(--transition);
-        }
-
-        .product-button:hover {
-            background-color: var(--dark);
-            color: var(--light);
+        .cta-button:hover::after {
+            transform: translateX(100%);
         }
 
         /* Features Section */
         .features {
-            background-color: var(--light);
-            padding: 4rem 0;
-            margin: 4rem 0;
-            box-shadow: var(--shadow);
+            padding: 100px 10%;
+            background-color: white;
         }
 
-        .features-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
+        .section-title {
+            text-align: center;
+            font-size: 40px;
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--apple-blue);
         }
 
         .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
+            gap: 40px;
         }
 
         .feature-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
             text-align: center;
-            padding: 2rem;
-            border-radius: 10px;
-            transition: var(--transition);
-            transform: translateY(20px);
-            opacity: 0;
-            animation: fadeInUp 0.5s ease forwards;
         }
 
-        .feature-card:nth-child(1) { animation-delay: 0.2s; }
-        .feature-card:nth-child(2) { animation-delay: 0.4s; }
-        .feature-card:nth-child(3) { animation-delay: 0.6s; }
-
         .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
         }
 
         .feature-icon {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 1.5rem;
+            font-size: 50px;
+            margin-bottom: 20px;
+            color: var(--apple-blue);
         }
 
         .feature-title {
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
-            color: var(--secondary);
+            font-size: 22px;
+            margin-bottom: 15px;
+            font-weight: 600;
         }
 
-        /* Testimonials */
-        .testimonials {
-            margin-bottom: 4rem;
+        .feature-desc {
+            color: #666;
+            line-height: 1.6;
         }
 
-        .testimonial-slider {
-            max-width: 800px;
-            margin: 0 auto;
-            position: relative;
-            overflow: hidden;
+        /* Gallery Section */
+        .gallery {
+            padding: 100px 10%;
+            background-color: var(--apple-light);
         }
 
-        .testimonial-slide {
-            background-color: var(--light);
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: var(--shadow);
-            text-align: center;
-            display: none;
-            animation: fadeIn 0.5s ease;
-        }
-
-        .testimonial-slide.active {
-            display: block;
-        }
-
-        .testimonial-text {
-            font-size: 1.1rem;
-            font-style: italic;
-            margin-bottom: 1.5rem;
-            position: relative;
-        }
-
-        .testimonial-text::before,
-        .testimonial-text::after {
-            content: '"';
-            font-size: 2rem;
-            color: var(--primary);
-            opacity: 0.5;
-        }
-
-        .testimonial-text::before {
-            position: absolute;
-            top: -15px;
-            left: -10px;
-        }
-
-        .testimonial-text::after {
-            position: absolute;
-            bottom: -30px;
-            right: -10px;
-        }
-
-        .testimonial-author {
+        .gallery-container {
             display: flex;
-            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
             justify-content: center;
+            margin-top: 50px;
         }
 
-        .author-avatar {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
+        .gallery-item {
+            flex: 1 1 300px;
+            max-width: 400px;
+            height: 300px;
+            border-radius: 10px;
             overflow: hidden;
-            margin-right: 1rem;
+            position: relative;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
         }
 
-        .author-avatar img {
+        .gallery-item:hover {
+            transform: scale(1.03);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .gallery-item img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transition: transform 0.5s;
         }
 
-        .author-info h4 {
-            font-size: 1.1rem;
-            margin-bottom: 0.2rem;
+        .gallery-item:hover img {
+            transform: scale(1.1);
         }
 
-        .author-info p {
-            font-size: 0.9rem;
-            color: #777;
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 15px;
+            transform: translateY(100%);
+            transition: transform 0.3s;
         }
 
-        .testimonial-nav {
-            display: flex;
-            justify-content: center;
-            margin-top: 1.5rem;
+        .gallery-item:hover .gallery-caption {
+            transform: translateY(0);
         }
 
-        .testimonial-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background-color: #ccc;
-            margin: 0 5px;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .testimonial-dot.active {
-            background-color: var(--primary);
-            transform: scale(1.2);
-        }
-
-        /* Newsletter */
-        .newsletter {
-            background: linear-gradient(135deg, var(--secondary), var(--dark));
-            color: var(--light);
-            padding: 4rem 0;
+        /* Contest Section */
+        .contest {
+            padding: 100px 10%;
             text-align: center;
-            margin-bottom: 4rem;
+            background: var(--apple-gradient);
+            color: white;
+            position: relative;
+            overflow: hidden;
         }
 
-        .newsletter-container {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 0 2rem;
+        .contest::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="rgba(255,255,255,0.05)" d="M0,0 L100,0 L100,100 L0,100 Z"></path></svg>');
+            background-size: cover;
+            opacity: 0.1;
         }
 
-        .newsletter h3 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
+        .contest h2 {
+            font-size: 40px;
+            margin-bottom: 20px;
         }
 
-        .newsletter p {
-            margin-bottom: 2rem;
-            opacity: 0.9;
+        .contest p {
+            font-size: 20px;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        .newsletter-form {
-            display: flex;
+        .contest-form {
             max-width: 500px;
             margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 1;
         }
 
-        .newsletter-form input {
-            flex: 1;
-            padding: 0.8rem 1rem;
-            border: none;
-            border-radius: 5px 0 0 5px;
-            font-size: 1rem;
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
         }
 
-        .newsletter-form button {
-            background-color: var(--primary);
-            color: var(--dark);
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--apple-dark);
+            font-weight: 500;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+
+        .form-group input:focus {
+            border-color: var(--apple-blue);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(0, 113, 227, 0.2);
+        }
+
+        .submit-button {
+            background: var(--apple-blue);
+            color: white;
             border: none;
-            padding: 0 1.5rem;
-            border-radius: 0 5px 5px 0;
+            padding: 15px 30px;
+            border-radius: 30px;
+            font-size: 18px;
             font-weight: 600;
             cursor: pointer;
-            transition: var(--transition);
+            width: 100%;
+            transition: all 0.3s;
+            margin-top: 10px;
         }
 
-        .newsletter-form button:hover {
-            background-color: var(--light);
+        .submit-button:hover {
+            background: #0060c0;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
 
         /* Footer */
         footer {
-            background-color: var(--dark);
-            color: var(--light);
-            padding: 4rem 0 2rem;
+            background-color: var(--apple-dark);
+            color: white;
+            padding: 60px 10% 30px;
         }
 
-        .footer-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
+        .footer-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
+            gap: 40px;
+            margin-bottom: 40px;
         }
 
-        .footer-column h4 {
-            font-size: 1.2rem;
-            margin-bottom: 1.5rem;
-            position: relative;
-            padding-bottom: 0.5rem;
+        .footer-column h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #aaa;
+            font-weight: 500;
         }
 
-        .footer-column h4::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 40px;
-            height: 2px;
-            background-color: var(--primary);
-        }
-
-        .footer-links {
+        .footer-column ul {
             list-style: none;
         }
 
-        .footer-links li {
-            margin-bottom: 0.8rem;
+        .footer-column ul li {
+            margin-bottom: 10px;
         }
 
-        .footer-links a {
-            color: #ccc;
+        .footer-column ul li a {
+            color: #ddd;
             text-decoration: none;
-            transition: var(--transition);
+            transition: color 0.3s;
         }
 
-        .footer-links a:hover {
-            color: var(--primary);
-            padding-left: 5px;
+        .footer-column ul li a:hover {
+            color: var(--apple-blue);
         }
 
         .social-links {
             display: flex;
-            gap: 1rem;
-            margin-top: 1.5rem;
+            gap: 15px;
         }
 
         .social-links a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0.1);
-            color: var(--light);
-            transition: var(--transition);
+            color: white;
+            font-size: 20px;
+            transition: color 0.3s;
         }
 
         .social-links a:hover {
-            background-color: var(--primary);
-            color: var(--dark);
-            transform: translateY(-3px);
+            color: var(--apple-blue);
         }
 
         .footer-bottom {
             text-align: center;
-            padding-top: 2rem;
-            margin-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            font-size: 0.9rem;
-            color: #999;
-        }
-
-        .footer-bottom a {
-            color: var(--primary);
-            text-decoration: none;
+            padding-top: 30px;
+            border-top: 1px solid #333;
+            color: #aaa;
+            font-size: 14px;
         }
 
         /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -639,517 +464,279 @@
             }
         }
 
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         /* Responsive */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
+        @media (max-width: 992px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding-top: 100px;
+                height: auto;
             }
 
-            .nav-links {
+            .hero-content {
+                padding-right: 0;
+                margin-bottom: 50px;
+            }
+
+            h1 {
+                font-size: 48px;
+            }
+
+            .subtitle {
+                font-size: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
                 display: none;
             }
 
-            .newsletter-form {
-                flex-direction: column;
+            h1 {
+                font-size: 36px;
             }
 
-            .newsletter-form input {
-                border-radius: 5px;
-                margin-bottom: 0.5rem;
+            .section-title {
+                font-size: 32px;
             }
 
-            .newsletter-form button {
-                border-radius: 5px;
-                padding: 0.8rem;
+            .contest h2 {
+                font-size: 32px;
             }
-        }
 
-        /* Floating elements */
-        .floating {
-            position: absolute;
-            animation: floating 3s ease-in-out infinite;
-        }
-
-        @keyframes floating {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-15px); }
-            100% { transform: translateY(0px); }
-        }
-
-        .floating-1 {
-            top: 20%;
-            left: 5%;
-            width: 50px;
-            opacity: 0.5;
-            animation-delay: 0.5s;
-        }
-
-        .floating-2 {
-            top: 60%;
-            right: 8%;
-            width: 40px;
-            opacity: 0.7;
-            animation-delay: 1s;
-        }
-
-        .floating-3 {
-            bottom: 10%;
-            left: 10%;
-            width: 30px;
-            opacity: 0.4;
-            animation-delay: 1.5s;
+            .contest p {
+                font-size: 18px;
+            }
         }
     </style>
 </head>
 <body>
     <header>
-        <div class="header-bg"></div>
-        <div class="header-content">
-            <nav>
-                <a href="#" class="logo"><i class="fas fa-crown"></i> TopAmazon</a>
-                <ul class="nav-links">
-                    <li><a href="#produits">Produits</a></li>
-                    <li><a href="#selection">Notre Sélection</a></li>
-                    <li><a href="#avis">Avis Clients</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-            <div class="hero">
-                <h1>Les Meilleurs Produits Amazon</h1>
-                <p>Découvrez notre sélection exclusive des produits les plus populaires et les mieux notés sur Amazon. Des achats en toute confiance avec nos recommandations d'experts.</p>
-                <a href="#produits" class="cta-button">Voir les produits</a>
-            </div>
-        </div>
-        
-        <!-- Floating elements -->
-        <img src="https://cdn-icons-png.flaticon.com/512/731/731985.png" class="floating floating-1" alt="floating icon">
-        <img src="https://cdn-icons-png.flaticon.com/512/731/731962.png" class="floating floating-2" alt="floating icon">
-        <img src="https://cdn-icons-png.flaticon.com/512/731/731988.png" class="floating floating-3" alt="floating icon">
+        <a href="#" class="logo">iPhone<span>16</span></a>
+        <nav>
+            <ul>
+                <li><a href="#features">Fonctionnalités</a></li>
+                <li><a href="#gallery">Galerie</a></li>
+                <li><a href="#contest">Gagnez-en un</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <main>
-        <section id="produits" class="container">
-            <div class="section-title">
-                <h2>Nos Produits Phares</h2>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>iPhone 16 Pro Max</h1>
+            <p class="subtitle">L'innovation réinventée. La puissance redéfinie.</p>
+            <a href="#contest" class="cta-button">Gagnez le vôtre gratuitement</a>
+        </div>
+        <div class="hero-image">
+            <img src="https://www.apple.com/v/iphone/home/bk/images/overview/hero/iphone_15_pro__eqwrvyz1h8qm_large.jpg" alt="iPhone 16 Pro Max">
+        </div>
+    </section>
+
+    <section class="features" id="features">
+        <h2 class="section-title">Fonctionnalités exceptionnelles</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-camera"></i>
+                </div>
+                <h3 class="feature-title">Système photo pro</h3>
+                <p class="feature-desc">Nouveau capteur 48MP, zoom optique 5x et technologie de stabilisation avancée pour des photos et vidéos époustouflantes.</p>
             </div>
-            <div class="product-grid">
-                <!-- Produit 1 -->
-                <div class="product-card">
-                    <span class="product-badge">Best Seller</span>
-                    <div class="product-image">
-                        <img src="https://m.media-amazon.com/images/I/71WkDp--uqL._AC_SL1500_.jpg" alt="Écouteurs sans fil">
-                    </div>
-                    <div class="product-info">
-                        <span class="product-category">Audio</span>
-                        <h3 class="product-title">Écouteurs Sans Fil Bluetooth avec Réduction de Bruit</h3>
-                        <div class="product-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                            <span>(4,782)</span>
-                        </div>
-                        <div class="product-price">€89.99 <del>€129.99</del></div>
-                        <a href="https://www.amazon.fr/dp/B08NFT4D1H" class="product-button" target="_blank">Voir sur Amazon</a>
-                    </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-bolt"></i>
                 </div>
-
-                <!-- Produit 2 -->
-                <div class="product-card">
-                    <span class="product-badge">Promo</span>
-                    <div class="product-image">
-                        <img src="https://m.media-amazon.com/images/I/71Y1S1m-QAL._AC_SL1500_.jpg" alt="Montre connectée">
-                    </div>
-                    <div class="product-info">
-                        <span class="product-category">Smartwatch</span>
-                        <h3 class="product-title">Montre Connectée Écran Tactile avec Surveillance Cardiaque</h3>
-                        <div class="product-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="far fa-star"></i>
-                            <span>(3,451)</span>
-                        </div>
-                        <div class="product-price">€59.99 <del>€79.99</del></div>
-                        <a href="https://www.amazon.fr/dp/B08NFT4D1H" class="product-button" target="_blank">Voir sur Amazon</a>
-                    </div>
-                </div>
-
-                <!-- Produit 3 -->
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="https://m.media-amazon.com/images/I/71qod7R6ZVL._AC_SL1500_.jpg" alt="Enceinte Bluetooth">
-                    </div>
-                    <div class="product-info">
-                        <span class="product-category">Audio</span>
-                        <h3 class="product-title">Enceinte Bluetooth Portable avec Éclairage LED</h3>
-                        <div class="product-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <span>(6,892)</span>
-                        </div>
-                        <div class="product-price">€39.99 <del>€59.99</del></div>
-                        <a href="https://www.amazon.fr/dp/B08NFT4D1H" class="product-button" target="_blank">Voir sur Amazon</a>
-                    </div>
-                </div>
-
-                <!-- Produit 4 -->
-                <div class="product-card">
-                    <span class="product-badge">Nouveau</span>
-                    <div class="product-image">
-                        <img src="https://m.media-amazon.com/images/I/61L5QgPvgxL._AC_SL1500_.jpg" alt="Robot cuisine">
-                    </div>
-                    <div class="product-info">
-                        <span class="product-category">Cuisine</span>
-                        <h3 class="product-title">Robot Cuiseur Multifonction Intelligent 12-en-1</h3>
-                        <div class="product-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                            <span>(2,345)</span>
-                        </div>
-                        <div class="product-price">€149.99 <del>€199.99</del></div>
-                        <a href="https://www.amazon.fr/dp/B08NFT4D1H" class="product-button" target="_blank">Voir sur Amazon</a>
-                    </div>
-                </div>
-
-                <!-- Produit 5 -->
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="https://m.media-amazon.com/images/I/71X8YbUpM6L._AC_SL1500_.jpg" alt="Oreiller ergonomique">
-                    </div>
-                    <div class="product-info">
-                        <span class="product-category">Maison</span>
-                        <h3 class="product-title">Oreiller Ergonomique Mémoire de Forme Cervical</h3>
-                        <div class="product-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="far fa-star"></i>
-                            <span>(5,672)</span>
-                        </div>
-                        <div class="product-price">€34.99 <del>€49.99</del></div>
-                        <a href="https://www.amazon.fr/dp/B08NFT4D1H" class="product-button" target="_blank">Voir sur Amazon</a>
-                    </div>
-                </div>
-
-                <!-- Produit 6 -->
-                <div class="product-card">
-                    <span class="product-badge">Économie</span>
-                    <div class="product-image">
-                        <img src="https://m.media-amazon.com/images/I/71Yd+PRjK3L._AC_SL1500_.jpg" alt="Purificateur d'air">
-                    </div>
-                    <div class="product-info">
-                        <span class="product-category">Maison</span>
-                        <h3 class="product-title">Purificateur d'Air avec Filtre HEPA et Ioniseur</h3>
-                        <div class="product-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <span>(4,128)</span>
-                        </div>
-                        <div class="product-price">€129.99 <del>€179.99</del></div>
-                        <a href="https://www.amazon.fr/dp/B08NFT4D1H" class="product-button" target="_blank">Voir sur Amazon</a>
-                    </div>
-                </div>
-
-                <!-- Produit 7 -->
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="https://m.media-amazon.com/images/I/71m+Qtq+HZL._AC_SL1500_.jpg" alt="Tapis de course">
-                    </div>
-                    <div class="product-info">
-                        <span class="product-category">Fitness</span>
-                        <h3 class="product-title">Tapis de Course Pliable avec Affichage Numérique</h3>
-                        <div class="product-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                            <span>(1,876)</span>
-                        </div>
-                        <div class="product-price">€299.99 <del>€399.99</del></div>
-                        <a href="https://www.amazon.fr/dp/B08NFT4D1H" class="product-button" target="_blank">Voir sur Amazon</a>
-                    </div>
-                </div>
-
-                <!-- Produit 8 -->
-                <div class="product-card">
-                    <span class="product-badge">Top</span>
-                    <div class="product-image">
-                        <img src="https://m.media-amazon.com/images/I/71TPda7cwUL._AC_SL1500_.jpg" alt="Drone">
-                    </div>
-                    <div class="product-info">
-                        <span class="product-category">Drone</span>
-                        <h3 class="product-title">Drone HD avec Caméra 4K et Double Batterie</h3>
-                        <div class="product-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="far fa-star"></i>
-                            <span>(3,245)</span>
-                        </div>
-                        <div class="product-price">€159.99 <del>€229.99</del></div>
-                        <a href="https://www.amazon.fr/dp/B08NFT4D1H" class="product-button" target="_blank">Voir sur Amazon</a>
-                    </div>
-                </div>
-
-                <!-- Produit 9 -->
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="https://m.media-amazon.com/images/I/71X8YbUpM6L._AC_SL1500_.jpg" alt="Lampe de sel">
-                    </div>
-                    <div class="product-info">
-                        <span class="product-category">Décoration</span>
-                        <h3 class="product-title">Lampe de Sel de l'Himalaya Naturelle avec Interrupteur</h3>
-                        <div class="product-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <span>(8,756)</span>
-                        </div>
-                        <div class="product-price">€24.99 <del>€34.99</del></div>
-                        <a href="https://www.amazon.fr/dp/B08NFT4D1H" class="product-button" target="_blank">Voir sur Amazon</a>
-                    </div>
-                </div>
-
-                <!-- Produit 10 -->
-                <div class="product-card">
-                    <span class="product-badge">Choix</span>
-                    <div class="product-image">
-                        <img src="https://m.media-amazon.com/images/I/71Yd+PRjK3L._AC_SL1500_.jpg" alt="Coussin chauffant">
-                    </div>
-                    <div class="product-info">
-                        <span class="product-category">Bien-être</span>
-                        <h3 class="product-title">Coussin Chauffant Électrique avec Minuterie</h3>
-                        <div class="product-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                            <span>(4,321)</span>
-                        </div>
-                        <div class="product-price">€39.99 <del>€49.99</del></div>
-                        <a href="https://www.amazon.fr/dp/B08NFT4D1H" class="product-button" target="_blank">Voir sur Amazon</a>
-                    </div>
-                </div>
+                <h3 class="feature-title">Puce A18 Pro</h3>
+                <p class="feature-desc">Le processeur le plus rapide jamais intégré à un smartphone, offrant des performances inégalées et une efficacité énergétique révolutionnaire.</p>
             </div>
-        </section>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-mobile-screen"></i>
+                </div>
+                <h3 class="feature-title">Écran Super Retina XDR</h3>
+                <p class="feature-desc">Écran OLED de 6,7 pouces avec technologie ProMotion et taux de rafraîchissement adaptatif jusqu'à 120Hz.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-battery-full"></i>
+                </div>
+                <h3 class="feature-title">Autonomie prolongée</h3>
+                <p class="feature-desc">Jusqu'à 30 heures de lecture vidéo grâce à la nouvelle batterie haute capacité et à l'optimisation logicielle.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-water"></i>
+                </div>
+                <h3 class="feature-title">Résistance améliorée</h3>
+                <p class="feature-desc">Nouveau design en titane avec certification IP68 pour une résistance à l'eau et à la poussière sans précédent.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-magic"></i>
+                </div>
+                <h3 class="feature-title">iOS 18</h3>
+                <p class="feature-desc">Le système d'exploitation le plus avancé avec de nouvelles fonctionnalités d'intelligence artificielle et de personnalisation.</p>
+            </div>
+        </div>
+    </section>
 
-        <section id="selection" class="features">
-            <div class="features-container">
-                <div class="section-title">
-                    <h2>Pourquoi Choisir Notre Sélection</h2>
-                </div>
-                <div class="features-grid">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <h3 class="feature-title">Produits Testés</h3>
-                        <p>Tous nos produits sont soigneusement sélectionnés et testés par notre équipe pour vous garantir la meilleure qualité.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-tag"></i>
-                        </div>
-                        <h3 class="feature-title">Meilleurs Prix</h3>
-                        <p>Nous négocions les meilleurs prix et promotions pour vous faire économiser sur vos achats Amazon.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-shield-alt"></i>
-                        </div>
-                        <h3 class="feature-title">Achat Sécurisé</h3>
-                        <p>Tous les achats passent par le système sécurisé d'Amazon pour une protection maximale.</p>
-                    </div>
-                </div>
+    <section class="gallery" id="gallery">
+        <h2 class="section-title">Galerie iPhone 16</h2>
+        <div class="gallery-container">
+            <div class="gallery-item">
+                <img src="https://www.apple.com/v/iphone/home/bk/images/overview/compare/iphone_15_pro__bpnz3t9s4hiq_large.jpg" alt="iPhone 16 design">
+                <div class="gallery-caption">Design élégant en titane</div>
             </div>
-        </section>
+            <div class="gallery-item">
+                <img src="https://www.apple.com/v/iphone/home/bk/images/overview/compare/iphone_15__f0q14h8x8rqu_large.jpg" alt="iPhone 16 couleurs">
+                <div class="gallery-caption">Nouvelles finitions exclusives</div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://www.apple.com/v/iphone/home/bk/images/overview/compare/iphone_camera__d0hbh2q1xpyq_large.jpg" alt="iPhone 16 camera">
+                <div class="gallery-caption">Système photo professionnel</div>
+            </div>
+        </div>
+    </section>
 
-        <section id="avis" class="container testimonials">
-            <div class="section-title">
-                <h2>Avis Clients</h2>
-            </div>
-            <div class="testimonial-slider">
-                <div class="testimonial-slide active">
-                    <p class="testimonial-text">Grâce à ce site, j'ai découvert des produits exceptionnels sur Amazon que je n'aurais jamais trouvés seul. Les recommandations sont toujours pertinentes et de qualité.</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">
-                            <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Marie D.">
-                        </div>
-                        <div class="author-info">
-                            <h4>Marie D.</h4>
-                            <p>Client depuis 2022</p>
-                        </div>
-                    </div>
+    <section class="contest" id="contest">
+        <h2>Tentez de gagner un iPhone 16 Pro Max</h2>
+        <p>Inscrivez-vous pour participer à notre tirage au sort et avoir une chance de remporter le tout nouvel iPhone 16 Pro Max d'une valeur de 1 499€ !</p>
+        
+        <div class="contest-form">
+            <form id="giveaway-form">
+                <div class="form-group">
+                    <label for="name">Nom complet</label>
+                    <input type="text" id="name" name="name" required>
                 </div>
-                <div class="testimonial-slide">
-                    <p class="testimonial-text">Les réductions proposées sont réelles et importantes. J'ai économisé près de 150€ sur mes derniers achats grâce aux bons plans partagés.</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">
-                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Pierre L.">
-                        </div>
-                        <div class="author-info">
-                            <h4>Pierre L.</h4>
-                            <p>Client depuis 2021</p>
-                        </div>
-                    </div>
+                <div class="form-group">
+                    <label for="email">Adresse email</label>
+                    <input type="email" id="email" name="email" required>
                 </div>
-                <div class="testimonial-slide">
-                    <p class="testimonial-text">La qualité des produits recommandés est toujours au rendez-vous. Je fais désormais confiance à ce site pour tous mes achats sur Amazon.</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">
-                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sophie T.">
-                        </div>
-                        <div class="author-info">
-                            <h4>Sophie T.</h4>
-                            <p>Client depuis 2023</p>
-                        </div>
-                    </div>
+                <div class="form-group">
+                    <label for="phone">Numéro de téléphone</label>
+                    <input type="tel" id="phone" name="phone" required>
                 </div>
-                <div class="testimonial-nav">
-                    <div class="testimonial-dot active" data-slide="0"></div>
-                    <div class="testimonial-dot" data-slide="1"></div>
-                    <div class="testimonial-dot" data-slide="2"></div>
-                </div>
-            </div>
-        </section>
-
-        <section class="newsletter">
-            <div class="newsletter-container">
-                <h3>Abonnez-vous à Notre Newsletter</h3>
-                <p>Recevez nos dernières offres et recommandations directement dans votre boîte mail.</p>
-                <form class="newsletter-form">
-                    <input type="email" placeholder="Votre adresse email" required>
-                    <button type="submit">S'abonner</button>
-                </form>
-            </div>
-        </section>
-    </main>
+                <button type="submit" class="submit-button">Participer au concours</button>
+            </form>
+        </div>
+    </section>
 
     <footer>
-        <div class="footer-container">
+        <div class="footer-content">
             <div class="footer-column">
-                <h4>TopAmazon</h4>
-                <p>Notre mission est de vous aider à trouver les meilleurs produits sur Amazon au meilleur prix.</p>
+                <h3>Produits</h3>
+                <ul>
+                    <li><a href="#">iPhone 16</a></li>
+                    <li><a href="#">iPhone 16 Pro</a></li>
+                    <li><a href="#">iPhone 16 Pro Max</a></li>
+                    <li><a href="#">Accessoires</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Support</h3>
+                <ul>
+                    <li><a href="#">Aide en ligne</a></li>
+                    <li><a href="#">Assistance</a></li>
+                    <li><a href="#">Garantie</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Entreprise</h3>
+                <ul>
+                    <li><a href="#">À propos</a></li>
+                    <li><a href="#">Carrières</a></li>
+                    <li><a href="#">Investisseurs</a></li>
+                    <li><a href="#">Événements</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Suivez-nous</h3>
                 <div class="social-links">
                     <a href="#"><i class="fab fa-facebook-f"></i></a>
                     <a href="#"><i class="fab fa-twitter"></i></a>
                     <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-pinterest"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
                 </div>
-            </div>
-            <div class="footer-column">
-                <h4>Liens Utiles</h4>
-                <ul class="footer-links">
-                    <li><a href="#">Accueil</a></li>
-                    <li><a href="#produits">Produits</a></li>
-                    <li><a href="#selection">Notre Sélection</a></li>
-                    <li><a href="#avis">Avis Clients</a></li>
-                    <li><a href="#">Blog</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h4>Informations</h4>
-                <ul class="footer-links">
-                    <li><a href="#">À propos</a></li>
-                    <li><a href="#">Contact</a></li>
-                    <li><a href="#">Politique de confidentialité</a></li>
-                    <li><a href="#">Conditions d'utilisation</a></li>
-                    <li><a href="#">Affiliation Amazon</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h4>Contact</h4>
-                <ul class="footer-links">
-                    <li><i class="fas fa-envelope"></i> contact@topamazon.fr</li>
-                    <li><i class="fas fa-phone"></i> +33 1 23 45 67 89</li>
-                    <li><i class="fas fa-map-marker-alt"></i> Paris, France</li>
-                </ul>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2023 TopAmazon. Tous droits réservés. Ce site participe au Programme Partenaires d'Amazon.</p>
+            <p>&copy; 2023 Apple Inc. Tous droits réservés. | <a href="#">Confidentialité</a> | <a href="#">Conditions d'utilisation</a></p>
         </div>
     </footer>
 
     <script>
-        // Testimonial slider
-        const testimonialSlides = document.querySelectorAll('.testimonial-slide');
-        const testimonialDots = document.querySelectorAll('.testimonial-dot');
-        let currentSlide = 0;
-
-        function showSlide(index) {
-            testimonialSlides.forEach(slide => slide.classList.remove('active'));
-            testimonialDots.forEach(dot => dot.classList.remove('active'));
-            
-            testimonialSlides[index].classList.add('active');
-            testimonialDots[index].classList.add('active');
-            currentSlide = index;
-        }
-
-        testimonialDots.forEach(dot => {
-            dot.addEventListener('click', () => {
-                const slideIndex = parseInt(dot.getAttribute('data-slide'));
-                showSlide(slideIndex);
-            });
-        });
-
-        // Auto slide change
-        setInterval(() => {
-            currentSlide = (currentSlide + 1) % testimonialSlides.length;
-            showSlide(currentSlide);
-        }, 5000);
-
-        // Newsletter form
-        const newsletterForm = document.querySelector('.newsletter-form');
-        newsletterForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const email = newsletterForm.querySelector('input').value;
-            alert(`Merci pour votre inscription avec l'adresse ${email}!`);
-            newsletterForm.reset();
-        });
-
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
+            anchor.addEventListener('click', function (e) {
                 e.preventDefault();
+                
                 document.querySelector(this.getAttribute('href')).scrollIntoView({
                     behavior: 'smooth'
                 });
             });
         });
 
+        // Form submission handling
+        const form = document.getElementById('giveaway-form');
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            
+            // Show success message
+            alert(`Merci ${name} ! Votre participation au concours a bien été enregistrée. Nous vous contacterons à l'adresse ${email} si vous gagnez.`);
+            
+            // Reset form
+            form.reset();
+            
+            // Scroll to top
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
         // Animation on scroll
         const animateOnScroll = () => {
-            const elements = document.querySelectorAll('.product-card, .feature-card');
+            const elements = document.querySelectorAll('.feature-card, .gallery-item');
+            
             elements.forEach(element => {
                 const elementPosition = element.getBoundingClientRect().top;
-                const screenPosition = window.innerHeight / 1.2;
+                const screenPosition = window.innerHeight / 1.3;
                 
-                if (elementPosition < screenPosition) {
-                    element.style.animation = 'fadeInUp 0.5s ease forwards';
+                if(elementPosition < screenPosition) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
                 }
             });
         };
 
+        // Set initial state for animated elements
+        document.querySelectorAll('.feature-card, .gallery-item').forEach(element => {
+            element.style.opacity = '0';
+            element.style.transform = 'translateY(20px)';
+            element.style.transition = 'opacity 0.6s, transform 0.6s';
+        });
+
+        // Add scroll event listener
         window.addEventListener('scroll', animateOnScroll);
+        
+        // Trigger once on load
         window.addEventListener('load', animateOnScroll);
     </script>
 </body>
